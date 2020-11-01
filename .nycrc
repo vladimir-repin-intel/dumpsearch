@@ -1,0 +1,20 @@
+{
+  "sourceMap": true,
+  "instrument": true,
+  "all": true,
+  "cache": false,
+  "exclude": [
+    "gulpfile.js",
+    "**/index.ts",
+    "**/*.type.ts",
+    "**/*.model.ts",
+    "**/*.const.ts",
+    "**/*.enum.ts",
+    "testSrc/**/*",
+    "**/*.d.ts"
+  ],
+  "reporter": [
+    "text",
+    "text-summary"
+  ]
+}

@@ -1,0 +1,8 @@
+/node_modules
+/gulp-tsc-tmp*
+.gulp-tsc-tmp*.*
+npm-debug.log*
+/coverage
+/build
+/.nyc_output
+metrics.json

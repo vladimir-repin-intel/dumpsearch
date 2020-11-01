@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "declaration": true,
+    "target": "esnext",
+    "noResolve": false,
+    "removeComments": true,
+    "preserveConstEnums": true,
+    "sourceMap": true,
+    "noUnusedLocals": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "lib": [
+      "es2017",
+      "es2019"
+    ],
+    "outDir": "build/"
+  },
+  "include": [
+    "src/**/*.ts",
+    "testSrc/**/*.ts"
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "name": "@b08/array",
+  "access": "public",
+  "version": "2.0.0",
+  "description": "set of DRY functions to work with array",
+  "files": [
+    "src",
+    "build/src",
+    "build/es5/src",
+    "build/es6/src",
+    "es5",
+    "es6",
+    "index.js",
+    "index.js.map",
+    "index.d.ts"
+  ],
+  "main": "index.js",
+  "typings": "index",
+  "scripts": {
+    "test": "npx gulp test",
+    "start": "npx gulp cover"
+  },
+  "keywords": [],
+  "author": "Vladimir Repin",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.com:b08/array.git"
+  },
+  "devDependencies": {
+    "@b08/library-tasks": "^3.0.4",
+    "@types/node": "^12.12.11",
+    "ts-node": "^8.5.0"
+  },
+  "dependencies": {
+    "@types/fs-extra": "^9.0.2",
+    "fs-extra": "^8.1.0"
+  }
+}

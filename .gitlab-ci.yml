@@ -1,0 +1,22 @@
+image: node:latest
+
+test on LTS node:
+  image: node:lts
+  only:
+    - merge_requests
+  script:
+    - npm ci && npm test
+
+test on latest node:
+  only:
+    - merge_requests
+  script:
+    - npm ci && npm test
+
+release:
+  only:
+    - /^master$/
+  script:  
+    - npm ci && npm test
+    - eval $(ssh-agent -s)
+    - npx gulp publishAndTag --npmToken=$npmToken --gitKey="$gitKey"

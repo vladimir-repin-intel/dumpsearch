@@ -1,0 +1,27 @@
+{
+  "typescript.tsdk": "./node_modules/typescript/lib",
+  "editor.detectIndentation": false,
+  "editor.tabSize": 2,
+  "files.eol": "\n",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.tslint": true
+  },
+  "files.autoSave": "off",
+  "files.exclude": {
+    "es*": true,
+    "tsconfig.*.*": true,
+    "branch.cmd": true,
+    ".nycrc": true,
+    ".gitignore": true,
+    "gulpfile.js": true,
+    ".gitlab-ci.yml": true,
+    "**/.git": true,
+    "node_modules": true,
+    "**/.nyc_output": true,
+    "build": true,
+    "**/coverage": true,
+    "package-lock.json": true,
+    "index.*": true,
+    "metrics.json": true
+  }
+}

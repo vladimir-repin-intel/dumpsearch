@@ -1,0 +1,6 @@
+{
+  "reporter": ["verbose", "summary"],
+  "threads": 1,
+  "testTimeout": 2000,
+  "timeout": 30000
+}
