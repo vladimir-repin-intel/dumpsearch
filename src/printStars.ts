@@ -1,4 +1,5 @@
 import { flatMap } from "@b08/array";
+import { Item } from "./types/item.type";
 import { Options } from "./types/options.type";
 import { Planet } from "./types/planet.type";
 import { Star } from "./types/star.type";
@@ -23,7 +24,10 @@ function getStarLines(star: Star, home: Star): string[] {
 }
 
 function getStarLine(star: Star, distance: number, planet: Planet): string {
-  return ` distance: ${distance}, star: ${star.name}, planet: ${planet.name}, items: ${planet.items.join(", ")}\n`;
+  return ` distance: ${distance}, star: ${star.name}, planet: ${planet.name}, items: ${printItems(planet.items)}\n`;
 }
 
+function printItems(items: Item[]): string {
+  return items.map(item => `${item.IName}:${item.Size}`).join(", ");
+}
 

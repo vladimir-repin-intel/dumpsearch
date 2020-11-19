@@ -1,4 +1,6 @@
+import { Item } from "./item.type";
+
 export interface Planet {
   name: string;
-  items: string[];
+  items: Item[];
 }

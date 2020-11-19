@@ -34,15 +34,15 @@ function createPlanet(planetModel: any, condition: Condition): Planet {
   };
 }
 
-function findItems(treasure: any, condition: Condition): string[] {
-  return Object.values(treasure)
-    .map(toItemModel)
-    .filter(item => item)
-    .filter(condition)
-    .map(item => item.IName);
+function findItems(treasure: any, condition: Condition): Item[] {
+  const items = Object.values(treasure)
+    .filter(val => val !== "")
+    .map(toItemModel);
+  return items.filter(condition);
 }
 
 function toItemModel(itemModel: any): any {
   const field = Object.keys(itemModel).find(f => f.startsWith("ItemId"));
-  return itemModel[field];
+  const model = itemModel[field];
+  return model;
 }

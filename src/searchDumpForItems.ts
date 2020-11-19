@@ -8,8 +8,15 @@ export function searchDumpForItems(dump: string[], options: Options): string {
   const model = parseModel(dump);
   const artifacts = findStarsInModel(model, options.home, i => isArtifact(i, options));
   const modules = findStarsInModel(model, options.home, i => isBlackholeItem(i, options));
-  return "artifacts:\n" + printStars(artifacts, options) +
+
+  const line = "artifacts:\n" + printStars(artifacts, options) +
     "modules:\n" + printStars(modules, options);
+  if (options.showAllArtifacts) {
+    const allArtifacts = findStarsInModel(model, options.home, i => i.IType.startsWith("Art"));
+    return line + "all artifacts:\n" + printStars(allArtifacts, { ...options, distanceLimit: 200 });
+  }
+
+  return line;
 }
 
 function isArtifact(item: Item, options: Options): boolean {
@@ -17,5 +24,5 @@ function isArtifact(item: Item, options: Options): boolean {
 }
 
 function isBlackholeItem(item: Item, options: Options): boolean {
-  return item.Owner === "None" && options.blackHoleModules.some(b => item.IName.includes(b));
+  return item.Owner === "None" && options.sizeLimit > item.Size && options.blackHoleModules.some(b => item.IName.includes(b));
 }

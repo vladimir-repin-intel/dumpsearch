@@ -3,5 +3,7 @@ export interface Options {
   artifacts: string[];
   blackHoleModules: string[];
   distanceLimit: number;
+  showAllArtifacts: boolean;
+  sizeLimit: number;
   home: string;
 }
