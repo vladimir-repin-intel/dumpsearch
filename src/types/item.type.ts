@@ -3,4 +3,5 @@ export interface Item {
   IType: string;
   Owner: string;
   Size: number;
+  TechLevel: number;
 }

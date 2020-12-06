@@ -4,10 +4,15 @@ import { Options } from "./types/options.type";
 import { Planet } from "./types/planet.type";
 import { Star } from "./types/star.type";
 
+export function filterStarsByDistance(stars: Star[], homeStar: string, limit: number): Star[] {
+  const home = stars.find(s => s.name === homeStar);
+  return stars
+    .filter(s => getDistance(s, home) <= limit);
+}
+
 export function printStars(stars: Star[], options: Options): string {
   const home = stars.find(s => s.name === options.home);
-  stars = stars
-    .filter(s => getDistance(s, home) <= options.distanceLimit)
+  stars = filterStarsByDistance(stars, options.home, options.distanceLimit)
     .sort((a, b) => getDistance(a, home) - getDistance(b, home));
   const lines = flatMap(stars, star => getStarLines(star, home));
   return lines.reduce((acc, cur) => acc + cur, "");
@@ -28,6 +33,11 @@ function getStarLine(star: Star, distance: number, planet: Planet): string {
 }
 
 function printItems(items: Item[]): string {
-  return items.map(item => `${item.IName}:${item.Size}`).join(", ");
+  return items.map(item => `${item.IName}:${item.Size}${tech(item)}`).join(", ");
+}
+function tech(item: Item): string {
+  return item.TechLevel && item.TechLevel > 0
+    ? `(${item.TechLevel})`
+    : "";
 }
 

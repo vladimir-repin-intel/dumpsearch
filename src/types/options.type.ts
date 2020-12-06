@@ -6,4 +6,6 @@ export interface Options {
   showAllArtifacts: boolean;
   sizeLimit: number;
   home: string;
+  proximity: number;
+  vicinity: number;
 }

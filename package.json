@@ -1,5 +1,5 @@
 {
-  "name": "@b08/array",
+  "name": "dumpsearch",
   "access": "public",
   "version": "2.0.0",
   "description": "set of DRY functions to work with array",
@@ -35,6 +35,7 @@
   "dependencies": {
     "@b08/array": "^2.0.0",
     "@types/iconv": "^2.1.16",
-    "iconv": "^3.0.0"
+    "iconv": "^3.0.0",
+    "typescript": "^4.1.2"
   }
 }
