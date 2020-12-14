@@ -8,6 +8,5 @@ export function findHome(model: Model, optionsHome: string): string {
   const id = model.Player.ICurStarId;
   const idName = "StarId" + id;
   const name = model.StarList[idName].StarName;
-  console.log(name);
   return name;
 }
