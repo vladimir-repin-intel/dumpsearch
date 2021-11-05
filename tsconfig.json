@@ -9,6 +9,7 @@
     "sourceMap": true,
     "noUnusedLocals": true,
     "noImplicitReturns": true,
+    "esModuleInterop": true,
     "noImplicitThis": true,
     "lib": [
       "es2017",

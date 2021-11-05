@@ -1,5 +1,5 @@
 import { getIndent } from "./getIndent";
-import { Model } from "./types/model.type";
+import { Model } from "./model.type";
 
 export function parseModel(dump: string[]): Model {
   const result = {};
