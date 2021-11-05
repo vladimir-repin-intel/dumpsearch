@@ -14,7 +14,8 @@
   "typings": "index",
   "scripts": {
     "build": "npx gulp buildLatest",
-    "start": "node build/src/index c:\\rangersSaves"
+    "start": "node build/src/index",
+    "test": "node build/src/index c:\\rangersSaves"
   },
   "keywords": [],
   "author": "Vladimir Repin",
