@@ -11,8 +11,7 @@ interface StarsModel {
   stars: Star[];
 }
 
-export function readModel(folder: string, fileName: string, index: number): SearchModel {
-  console.log(`reading file ${index}`);
+export function readModel(folder: string, fileName: string): SearchModel {
   let starsModel = tryReadStarsJson(folder, fileName);
   if (starsModel == null) {
     const buffer = fs.readFileSync(folder + "/" + fileName);

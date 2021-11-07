@@ -3,6 +3,7 @@
   "editor.detectIndentation": false,
   "editor.tabSize": 2,
   "files.eol": "\n",
+  "editor.bracketPairColorization.enabled": true,
   "editor.codeActionsOnSave": {
     "source.fixAll.tslint": true
   },
