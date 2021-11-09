@@ -1,5 +1,5 @@
 import { SearchModel, Star } from "../searchModel/searchModel.type";
-import fs from "fs";
+import fs from "fs-extra";
 import IConv from "iconv";
 import { parseModel } from "./parseModel";
 import { createStars } from "./createStars";
@@ -11,10 +11,10 @@ interface StarsModel {
   stars: Star[];
 }
 
-export function readModel(folder: string, fileName: string): SearchModel {
-  let starsModel = tryReadStarsJson(folder, fileName);
+export async function readModel(folder: string, fileName: string): Promise<SearchModel> {
+  let starsModel = await tryReadStarsJson(folder, fileName);
   if (starsModel == null) {
-    const buffer = fs.readFileSync(folder + "/" + fileName);
+    const buffer = await fs.readFile(folder + "/" + fileName);
     const dump = new (<any>IConv).Iconv("CP1251", "utf8").convert(buffer, "cp1251").toString();
     const dumpLines = dump.split("\r\n");
     const model = parseModel(dumpLines);
@@ -27,10 +27,10 @@ export function readModel(folder: string, fileName: string): SearchModel {
   return parsed;
 }
 
-function tryReadStarsJson(folder: string, fileName: string): StarsModel {
+async function tryReadStarsJson(folder: string, fileName: string): Promise<StarsModel> {
   const name = folder + "/" + fileName + ".json";
   if (!fs.existsSync(name)) { return null; }
-  const content = fs.readFileSync(name, "utf-8");
+  const content = await fs.readFile(name, "utf-8");
   return JSON.parse(content);
 }
 

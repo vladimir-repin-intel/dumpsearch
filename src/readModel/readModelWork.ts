@@ -6,7 +6,12 @@ import { getMetrics } from "./getMetrics";
 
 if (!isMainThread) {
   const { folder, files } = workerData;
-  parentPort.postMessage(getMetrics(folder, files));
+  getMetrics(folder, files)
+    .then(result => parentPort.postMessage(result))
+    .catch(err => {
+      console.log("err", err);
+      parentPort.postMessage(null);
+    });
 }
 
 export function readModelWork(folder: string, files: string[]): Promise<Metric[]> {

@@ -23,9 +23,9 @@ function createStar(starModel: any, corner: Point): Star {
 }
 
 function createItem(starModel: any, corner: Point): Item {
-  const horizontalDistance = Math.abs(corner.x - starModel.X);
-  const verticalDistance = Math.abs(corner.y - starModel.Y);
-  const cornerDistance = Math.sqrt(horizontalDistance * horizontalDistance + verticalDistance * verticalDistance);
+  const horizontalDistance = Math.round(Math.abs(corner.x - starModel.X));
+  const verticalDistance = Math.round(Math.abs(corner.y - starModel.Y));
+  const cornerDistance = Math.round(Math.sqrt(horizontalDistance * horizontalDistance + verticalDistance * verticalDistance));
   return {
     pirateOwned: starModel.Owners === "Pirates",
     dominatorOwned: starModel.Owners === "Klings",
