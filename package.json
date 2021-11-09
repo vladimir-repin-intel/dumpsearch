@@ -13,6 +13,7 @@
   "main": "index.js",
   "typings": "index",
   "scripts": {
+    "fullBuild": "npm ci && npx gulp buildLatest",
     "build": "npx gulp buildLatest",
     "start": "node build/src/index",
     "test": "node build/src/index c:\\rangersSaves"
