@@ -20,7 +20,7 @@ async function searchDumps(): Promise<void> {
   const end = new Date().getTime();
   const sec = (end - start) / 1000;
 
-  const resultsLength = process.argv[2] === "" ? 20 : + process.argv[2];
+  const resultsLength = (+process.argv[3]) || 20;
   const sliced = ordered.slice(0, resultsLength);
   console.log(`Processed ${metrics.length} save files, in ${sec} seconds`);
   console.log(`top ${sliced.length} results:`);
