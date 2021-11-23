@@ -14,13 +14,20 @@ interface StarsModel {
 export async function readModel(folder: string, fileName: string): Promise<SearchModel> {
   let starsModel = await tryReadStarsJson(folder, fileName);
   if (starsModel == null) {
-    const buffer = await fs.readFile(folder + "/" + fileName);
-    const dump = new (<any>IConv).Iconv("CP1251", "utf8").convert(buffer, "cp1251").toString();
-    const dumpLines = dump.split("\r\n");
-    const model = parseModel(dumpLines);
-    const home = getHomeName(model);
-    const stars = createStars(model);
-    starsModel = { stars, home };
+    try {
+      const buffer = await fs.readFile(folder + "/" + fileName);
+
+      const dump = new (<any>IConv).Iconv("CP1251", "utf8").convert(buffer, "cp1251").toString();
+      const dumpLines = dump.split("\r\n");
+      const model = parseModel(dumpLines);
+      const home = getHomeName(model);
+      const stars = createStars(model);
+      starsModel = { stars, home };
+    } catch (ex) {
+      const error: Error = ex;
+      console.log(fileName, ex.message, error.stack);
+      throw ex;
+    }
     writeStarsJson(folder, fileName, starsModel);
   }
   const parsed = createModel(fileName, starsModel);

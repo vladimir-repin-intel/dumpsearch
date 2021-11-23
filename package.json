@@ -15,8 +15,9 @@
   "scripts": {
     "fullBuild": "npm ci && npx gulp buildLatest",
     "build": "npx gulp buildLatest",
-    "start": "node build/src/index",
-    "test": "node build/src/index c:\\rangersSaves"
+    "start": "node build/src/searchDumps",
+    "test": "node build/src/searchDumps c:/rangersSaves",
+    "copy": "node build/src/copy.js c:/rangersSaves c:/Users/bobah/OneDrive/Documents/SpaceRangersHD/Save 160"
   },
   "keywords": [],
   "author": "Vladimir Repin",
